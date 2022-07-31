@@ -1,0 +1,167 @@
+<script data-info="hacks-body">
+// on each checkbox click
+$('.hack42-checkbox-label').click(function(){
+  // get the total value field
+  const $totalVal = $('.hack45-added-value'),
+    // get the checkbox input field
+    $checkbox = $(this).prev();
+  // declare sum variable 
+  let sum;
+  // if user checks the checkbox
+  if(!$checkbox.is(':checked')){
+    // the sum is equal to the total value field's value
+    // plus the checkbox's value
+    sum = Number($totalVal.text().replace(/[\$,]/g,'')) + Number($checkbox.attr('add-value'));
+  }
+  else{ // if user unchecks the checkbox
+    // the sum is equal to the total value field's value
+    // minus the checkbox's value
+    sum = Number($totalVal.text().replace(/[\$,]/g,'')) - Number($checkbox.attr('add-value'));
+  }
+  
+  // format & display the sum
+  formatNDisplay(sum);
+});
+
+
+
+// on each radio button click
+$('.hack43-radio-label').click(function(){
+  // declare sum variable
+  let sum ;
+  
+  // if this radio button is in the pool-length group
+  if($(this).prev().is('[name="Pool-Length"]')){
+    // the sum is equal to the radio button's value
+    // plus the development group's selected radio button
+    // if no radio button is selected in the development group
+    // default to 0
+    sum = Number($(this).prev().attr('add-value')) + (Number($('input[name="Container-Width"]:checked').attr('add-value')) || 0) + (Number($('input[name="Entry-Options"]:checked').attr('add-value')) || 0) + (Number($('input[name="Lighting"]:checked').attr('add-value')) || 0) + (Number($('input[name="Interior-Lining"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="Heater"]:checked').attr('add-value')) || 0) + (Number($('input[name="Automatic-Cover"]:checked').attr('add-value')) || 0) + (Number($('input[name="12-width"]:checked').attr('add-value')) || 0);
+  }
+   // if this radio button is in the Container group
+   if($(this).prev().is('[name="Container-Width"]')){
+    // the sum is equal to the radio button's value
+    // plus the development group's selected radio button
+    // if no radio button is selected in the development group
+    // default to 0
+    sum = Number($(this).prev().attr('add-value')) + (Number($('input[name="Pool-Length"]:checked').attr('add-value')) || 0) + (Number($('input[name="Entry-Options"]:checked').attr('add-value')) || 0) + (Number($('input[name="Lighting"]:checked').attr('add-value')) || 0) + (Number($('input[name="Interior-Lining"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="Heater"]:checked').attr('add-value')) || 0) + (Number($('input[name="Automatic-Cover"]:checked').attr('add-value')) || 0) + (Number($('input[name="12-width"]:checked').attr('add-value')) || 0);
+  }
+   // if this radio button is in the Container group
+   if($(this).prev().is('[name="Entry-Options"]')){
+    // the sum is equal to the radio button's value
+    // plus the development group's selected radio button
+    // if no radio button is selected in the development group
+    // default to 0
+    sum = Number($(this).prev().attr('add-value')) + (Number($('input[name="Pool-Length"]:checked').attr('add-value')) || 0) + (Number($('input[name="Container-Width"]:checked').attr('add-value')) || 0) + (Number($('input[name="Lighting"]:checked').attr('add-value')) || 0) + (Number($('input[name="Interior-Lining"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="Heater"]:checked').attr('add-value')) || 0) + (Number($('input[name="Automatic-Cover"]:checked').attr('add-value')) || 0) + (Number($('input[name="12-width"]:checked').attr('add-value')) || 0);
+  }
+  // if this radio button is in the Container group
+  if($(this).prev().is('[name="Lighting"]')){
+   // the sum is equal to the radio button's value
+   // plus the development group's selected radio button
+   // if no radio button is selected in the development group
+   // default to 0
+   sum = Number($(this).prev().attr('add-value')) + (Number($('input[name="Pool-Length"]:checked').attr('add-value')) || 0) + (Number($('input[name="Container-Width"]:checked').attr('add-value')) || 0) + (Number($('input[name="Entry-Options"]:checked').attr('add-value')) || 0) + (Number($('input[name="Interior-Lining"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="Heater"]:checked').attr('add-value')) || 0) + (Number($('input[name="Automatic-Cover"]:checked').attr('add-value')) || 0) + (Number($('input[name="12-width"]:checked').attr('add-value')) || 0);
+ }
+ // if this radio button is in the Container group
+ if($(this).prev().is('[name="Interior-Lining"]')){
+  // the sum is equal to the radio button's value
+  // plus the development group's selected radio button
+  // if no radio button is selected in the development group
+  // default to 0
+  sum = Number($(this).prev().attr('add-value')) + (Number($('input[name="Pool-Length"]:checked').attr('add-value')) || 0) + (Number($('input[name="Container-Width"]:checked').attr('add-value')) || 0) + (Number($('input[name="Entry-Options"]:checked').attr('add-value')) || 0) + (Number($('input[name="Lighting"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="Heater"]:checked').attr('add-value')) || 0) + (Number($('input[name="Automatic-Cover"]:checked').attr('add-value')) || 0) + (Number($('input[name="12-width"]:checked').attr('add-value')) || 0);
+}
+// if this radio button is in the Container group
+if($(this).prev().is('[name="Speaker-Systems"]')){
+ // the sum is equal to the radio button's value
+ // plus the development group's selected radio button
+ // if no radio button is selected in the development group
+ // default to 0
+ sum = Number($(this).prev().attr('add-value')) + (Number($('input[name="Pool-Length"]:checked').attr('add-value')) || 0) + (Number($('input[name="Container-Width"]:checked').attr('add-value')) || 0) + (Number($('input[name="Entry-Options"]:checked').attr('add-value')) || 0) + (Number($('input[name="Lighting"]:checked').attr('add-value')) || 0) + (Number($('input[name="Interior-Lining"]:checked').attr('add-value')) || 0) + (Number($('input[name="Heater"]:checked').attr('add-value')) || 0) + (Number($('input[name="Automatic-Cover"]:checked').attr('add-value')) || 0) + (Number($('input[name="12-width"]:checked').attr('add-value')) || 0);
+}
+// if this radio button is in the Container group
+if($(this).prev().is('[name="Heater"]')){
+ // the sum is equal to the radio button's value
+ // plus the development group's selected radio button
+ // if no radio button is selected in the development group
+ // default to 0
+ sum = Number($(this).prev().attr('add-value')) + (Number($('input[name="Pool-Length"]:checked').attr('add-value')) || 0) + (Number($('input[name="Container-Width"]:checked').attr('add-value')) || 0) + (Number($('input[name="Entry-Options"]:checked').attr('add-value')) || 0) + (Number($('input[name="Lighting"]:checked').attr('add-value')) || 0) + (Number($('input[name="Interior-Lining"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="Automatic-Cover"]:checked').attr('add-value')) || 0) + (Number($('input[name="12-width"]:checked').attr('add-value')) || 0);
+}
+// if this radio button is in the Container group
+if($(this).prev().is('[name="Automatic-Cover"]')){
+ // the sum is equal to the radio button's value
+ // plus the development group's selected radio button
+ // if no radio button is selected in the development group
+ // default to 0
+ sum = Number($(this).prev().attr('add-value')) + (Number($('input[name="Pool-Length"]:checked').attr('add-value')) || 0) + (Number($('input[name="Container-Width"]:checked').attr('add-value')) || 0) + (Number($('input[name="Entry-Options"]:checked').attr('add-value')) || 0) + (Number($('input[name="Lighting"]:checked').attr('add-value')) || 0) + (Number($('input[name="Interior-Lining"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="12-width"]:checked').attr('add-value')) || 0);
+}
+// if this radio button is in the Container group
+if($(this).prev().is('[name="12-width"]')){
+ // the sum is equal to the radio button's value
+ // plus the development group's selected radio button
+ // if no radio button is selected in the development group
+ // default to 0
+ sum = Number($(this).prev().attr('add-value')) + (Number($('input[name="Pool-Length"]:checked').attr('add-value')) || 0) + (Number($('input[name="Container-Width"]:checked').attr('add-value')) || 0) + (Number($('input[name="Entry-Options"]:checked').attr('add-value')) || 0) + (Number($('input[name="Lighting"]:checked').attr('add-value')) || 0) + (Number($('input[name="Interior-Lining"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="Speaker-Systems"]:checked').attr('add-value')) || 0) + (Number($('input[name="Automatic-Cover"]:checked').attr('add-value')) || 0);
+}
+  
+  // loop through all checkboxes
+  $('.hack42-checkbox-label').prev().each((i, checkbox)=>{
+    // if a checkbox is checked
+    if($(checkbox).is(':checked')){
+      // add its value to the sum
+      sum += Number($(checkbox).attr('add-value'));
+    }
+  }); 
+ 
+  // loop through all selects
+  $('.hack44-select').each((i, select)=>{
+    // sum is equal to sum + the select's value
+    sum += (Number($(select).attr($(select).val())) || 0);
+  });
+  
+  // format & display the sum
+  formatNDisplay(sum);
+});
+
+
+
+// on each select change
+$('.hack44-select').change(function(){
+  // declare & initialize sum at 0
+  let sum = 0;
+  
+  // for each select
+  $('.hack44-select').each((i, select)=>{
+    // sum is equal to sum + the select's value
+    sum += (Number($(select).attr($(select).val())) || 0);
+  });
+  
+  // loop through all checkboxes
+  $('.hack42-checkbox-label').prev().each((i, checkbox)=>{
+    // if a checkbox is checked
+    if($(checkbox).is(':checked')){
+      // add its value to the sum
+      sum += parseInt($(checkbox).attr('add-value'), 10)
+    }
+  });
+  
+  // get the selected radio button's value from each group
+  // or default to 0 if none selected
+  // add to sum
+  sum += (Number($('input[name="Pool-Length"]:checked').attr('add-value')) || 0) + (Number($('input[name="Container-Width"]:checked').attr('add-value')) || 0) + (Number($('input[name="Entry-Options"]:checked').attr('add-value')) || 0);
+
+  // format & display the sum
+  formatNDisplay(sum);
+});
+
+function formatNDisplay(sum){
+  // format sum e.g. 3500 to 3,500
+  const formattedSum = new Intl.NumberFormat().format(sum);
+  
+  // display the sum
+  // NB: use sum directly if not interested in formatting
+  // $('.hack45-added-value').text(sum);
+  $('.hack45-added-value').text(formattedSum);
+  // add the sum to the hidden input field
+  $('.hack45-send-value').val(formattedSum);
+}
+</script>
